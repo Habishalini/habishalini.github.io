@@ -1,186 +1,84 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[Your Name] · Data Analyst Portfolio</title>
-  <meta name="description" content="Data Analyst portfolio – SQL, Python, Power BI, Tableau, Excel. Projects, resume, and contact." />
-  <!-- Optional social preview (shows when you share your site). Update after you upload an image -->
-  <!-- <meta property="og:image" content="ecommerce-dashboard.png" /> -->  <style>
-    :root{
-      --bg:#f7f8fa; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
-      --brand:#2563eb; --brand-dark:#1e40af; --accent:#0ea5e9;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-
-    /* Top Nav */
-    .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb}
-    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem}
-    .brand{font-weight:700}
-    .nav a{color:var(--ink);text-decoration:none;margin-left:1rem;font-size:.95rem}
-    .nav a:hover{color:var(--brand)}
-
-    /* Hero */
-    .hero{max-width:1100px;margin:0 auto;padding:3rem 1rem 2rem;display:grid;gap:1rem}
-    .hero h1{margin:.2rem 0;font-size:clamp(1.8rem,3vw,2.6rem)}
-    .hero p{margin:.2rem 0;color:var(--muted)}
-    .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
-    .chip{background:#e5f0ff;color:#1e3a8a;padding:.25rem .6rem;border-radius:999px;font-size:.8rem}
-    .cta{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap}
-    .btn{display:inline-block;background:var(--brand);color:#fff;padding:.6rem .9rem;border-radius:.6rem;text-decoration:none}
-    .btn:hover{background:var(--brand-dark)}
-    .btn.secondary{background:#1118270d;color:var(--ink);border:1px solid #e5e7eb}
-    .btn.secondary:hover{background:#11182714}
-
-    /* Sections */
-    section{max-width:1100px;margin:0 auto;padding:2rem 1rem}
-    h2{font-size:1.6rem;margin:0 0 1rem;border-left:6px solid var(--brand);padding-left:.6rem}
-    .muted{color:var(--muted)}
-
-    /* Projects grid */
-    .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);transition:transform .2s ease, box-shadow .2s ease}
-    .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
-    .thumb{display:block}
-    .thumb img{width:100%;height:180px;object-fit:cover;display:block}
-    .card-body{padding:1rem}
-    .card h3{margin:.2rem 0 .4rem;color:var(--brand);font-size:1.1rem}
-    .card p{margin:.3rem 0;color:var(--ink);font-size:.95rem;line-height:1.45}
-    .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem}
-    .tag{border:1px solid #e5e7eb;border-radius:999px;padding:.18rem .5rem;font-size:.75rem;color:#374151;background:#fafafa}
-    .actions{display:flex;gap:.5rem;margin-top:.8rem}
-    .link{display:inline-block;text-decoration:none;font-size:.9rem;padding:.45rem .7rem;border-radius:.5rem;border:1px solid #e5e7eb}
-    .link:hover{background:#f3f4f6}
-    .primary{background:var(--brand);color:#fff;border-color:transparent}
-    .primary:hover{background:var(--brand-dark)}
-
-    /* Contact */
-    .contact{background:#0b1220;color:#e5e7eb;border-radius:16px}
-    .contact a{color:#fcd34d;text-decoration:none}
-    .contact a:hover{text-decoration:underline}
-    .contact .row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
-    @media (max-width:700px){.contact .row{grid-template-columns:1fr}}
-
-    footer{max-width:1100px;margin:1rem auto 2rem;color:#6b7280;text-align:center;padding:0 1rem}
-  </style></head>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333; }
+    header { background:#222; color:white; padding:1rem; text-align:center; }
+    nav a { color:white; margin:0 1rem; text-decoration:none; }
+    section { padding:2rem; max-width:900px; margin:auto; }
+    h1,h2,h3 { color:#222; }
+    .skills span { display:inline-block; background:#eee; padding:0.5rem 1rem; margin:0.25rem; border-radius:8px; }
+    .projects { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .card { background:white; padding:1rem; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    .card img { max-width:100%; border-radius:6px; }
+    .tags span { background:#ddd; padding:0.25rem 0.5rem; margin:0.25rem; border-radius:5px; font-size:0.85rem; }
+    footer { text-align:center; padding:1rem; background:#222; color:white; }
+  </style>
+</head>
 <body>
-  <!-- Top Navigation -->
-  <nav class="nav" aria-label="Primary">
-    <div class="nav-inner">
-      <div class="brand">[Your Name]</div>
-      <div>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <!-- Upload resume.pdf to your repo, then this link will work -->
-        <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-      </div>
-    </div>
-  </nav>  <!-- Hero / Intro -->  <header class="hero" id="about">
-    <p class="muted">Hello! I'm</p>
+  <header>
     <h1>[Your Name] · Data Analyst</h1>
-    <p>SQL · Python · Power BI · Tableau · Excel. I turn raw data into insights and dashboards that drive business decisions.</p>
-    <div class="chips">
-      <span class="chip">SQL</span>
-      <span class="chip">Python (pandas)</span>
-      <span class="chip">Power BI / Tableau</span>
-      <span class="chip">Excel</span>
-      <span class="chip">EDA · Visualization</span>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" target="_blank">Resume</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I’m <strong>[Your Name]</strong>, a Data Analyst skilled in SQL, Python, Power BI, Tableau, and Excel. 
+       I turn raw data into insights and dashboards that drive business decisions.</p>
+    <div class="skills">
+      <span>SQL</span>
+      <span>Python (pandas)</span>
+      <span>Power BI / Tableau</span>
+      <span>Excel</span>
+      <span>EDA · Visualization</span>
     </div>
-    <div class="cta">
-      <a class="btn" href="#projects">See Projects</a>
-      <a class="btn secondary" href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="btn secondary" href="https://www.linkedin.com/in/yourlinkedin/" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </div>
-  </header>  <!-- Projects -->  <main>
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="grid">
-        <!-- Project 1 -->
-        <article class="card">
-          <a class="thumb" href="https://github.com/yourusername/ecommerce-dashboard" target="_blank" rel="noopener">
-            <img src="ecommerce-dashboard.png" alt="Screenshot of E-commerce Sales Dashboard in Power BI" />
-          </a>
-          <div class="card-body">
-            <h3>E-commerce Sales Dashboard</h3>
-            <p>Interactive dashboard tracking revenue, profit, and regional performance on 10k+ orders. Automated cleaning with SQL; slicers for time, category, and region.</p>
-            <div class="tags">
-              <span class="tag">Power BI</span>
-              <span class="tag">SQL</span>
-              <span class="tag">DAX</span>
-            </div>
-            <div class="actions">
-              <a class="link primary" href="https://github.com/yourusername/ecommerce-dashboard" target="_blank" rel="noopener">GitHub Repo</a>
-              <!-- If you publish a live dashboard (Tableau Public / Power BI "publish to web"), put its link here -->
-              <!-- <a class="link" href="LIVE_DASHBOARD_URL" target="_blank" rel="noopener">Live Demo</a> -->
-            </div>
-          </div>
-        </article><!-- Project 2 -->
-    <article class="card">
-      <a class="thumb" href="https://github.com/yourusername/customer-churn" target="_blank" rel="noopener">
-        <img src="customer-churn.png" alt="Screenshot of churn model notebook and charts" />
-      </a>
-      <div class="card-body">
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+
+      <!-- Project 1 -->
+      <div class="card">
+        <img src="ecommerce-dashboard.png" alt="E-commerce Sales Dashboard screenshot">
+        <h3>E-commerce Sales Dashboard</h3>
+        <p>Interactive dashboard tracking revenue, profit, and regional performance on 10k+ orders. Automated cleaning with SQL; slicers for time, category, and region.</p>
+        <div class="tags"><span>Power BI</span><span>SQL</span><span>DAX</span></div>
+        <a href="https://github.com/yourusername/ecommerce-dashboard" target="_blank">GitHub Repo</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card">
+        <img src="customer-churn.png" alt="Customer churn project screenshot">
         <h3>Customer Churn Prediction</h3>
-        <p>Built a logistic regression model (≈82% accuracy) on telecom data to predict churn and highlight top drivers using feature importance and SHAP-like insights.</p>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">pandas</span>
-          <span class="tag">scikit-learn</span>
-        </div>
-        <div class="actions">
-          <a class="link primary" href="https://github.com/yourusername/customer-churn" target="_blank" rel="noopener">GitHub Repo</a>
-        </div>
+        <p>Logistic regression model (≈82% accuracy) on telecom data to predict churn and highlight top drivers using feature importance and SHAP-like insights.</p>
+        <div class="tags"><span>Python</span><span>Pandas</span><span>Scikit-learn</span></div>
+        <a href="https://github.com/yourusername/customer-churn" target="_blank">GitHub Repo</a>
       </div>
-    </article>
 
-    <!-- DUPLICATE THIS BLOCK FOR MORE PROJECTS -->
-    <!--
-    <article class="card">
-      <a class="thumb" href="https://github.com/yourusername/PROJECT-SLUG" target="_blank" rel="noopener">
-        <img src="PROJECT-IMAGE.png" alt="Screenshot of PROJECT TITLE" />
-      </a>
-      <div class="card-body">
-        <h3>PROJECT TITLE</h3>
-        <p>1–2 sentence description of what the project does and the business value.</p>
-        <div class="tags">
-          <span class="tag">Tool 1</span>
-          <span class="tag">Tool 2</span>
-        </div>
-        <div class="actions">
-          <a class="link primary" href="https://github.com/yourusername/PROJECT-SLUG" target="_blank" rel="noopener">GitHub Repo</a>
-          <a class="link" href="LIVE_DEMO_URL" target="_blank" rel="noopener">Live Demo</a>
-        </div>
-      </div>
-    </article>
-    -->
-  </div>
-</section>
+    </div>
+  </section>
 
-<!-- Contact -->
-<section id="contact">
-  <div class="contact">
-    <section style="padding:1.25rem 1rem">
-      <h2 style="margin-top:0">Contact</h2>
-      <div class="row">
-        <p>
-          <strong>Email:</strong> <a href="mailto:youremail@email.com">youremail@email.com</a><br />
-          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourlinkedin/" target="_blank" rel="noopener">linkedin.com/in/yourlinkedin</a><br />
-          <strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/yourusername</a>
-        </p>
-        <p class="muted">
-          Tip: include a short line inviting contact, e.g., “I’m open to Data Analyst roles (remote or Colombo). Feel free to reach out!”
-        </p>
-      </div>
-    </section>
-  </div>
-</section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      <strong>Email:</strong> <a href="mailto:youremail@email.com">youremail@email.com</a><br>
+      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourlinkedin/" target="_blank">linkedin.com/in/yourlinkedin</a><br>
+      <strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+    </p>
+    <p>I’m open to Data Analyst roles (remote or Colombo). Feel free to reach out!</p>
+  </section>
 
-  </main>  <footer>
-    © <span id="year"></span> [Your Name] · Built with ❤ using GitHub Pages
-  </footer>  <script>
-    // set current year automatically
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script></body>
+  <footer>
+    © [Your Name] · Built with ❤ using GitHub Pages
+  </footer>
+</body>
 </html>
