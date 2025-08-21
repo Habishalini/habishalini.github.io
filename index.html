@@ -3,82 +3,239 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L Habishalini·Business & Data Analytics Enthusiast Portfolio</title>
+  <title>L Habishalini | Portfolio</title>
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333; }
-    header { background:#222; color:white; padding:1rem; text-align:center; }
-    nav a { color:white; margin:0 1rem; text-decoration:none; }
-    section { padding:2rem; max-width:900px; margin:auto; }
-    h1,h2,h3 { color:#222; }
-    .skills span { display:inline-block; background:#eee; padding:0.5rem 1rem; margin:0.25rem; border-radius:8px; }
-    .projects { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
-    .card { background:white; padding:1rem; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    .card img { max-width:100%; border-radius:6px; }
-    .tags span { background:#ddd; padding:0.25rem 0.5rem; margin:0.25rem; border-radius:5px; font-size:0.85rem; }
-    footer { text-align:center; padding:1rem; background:#222; color:white; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 { margin: 0; font-size: 1.5rem; }
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #00aaff; }
+
+    section {
+      padding: 60px 40px;
+      max-width: 1100px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    section.show { opacity: 1; transform: translateY(0); }
+    h2 { color: #1a1a2e; margin-bottom: 20px; }
+
+    #home {
+      text-align: center;
+      padding: 100px 20px;
+    }
+    #home img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #00aaff;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #00aaff;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #0077cc; }
+
+    .skill { margin-bottom: 15px; }
+    .skill-bar {
+      background: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .skill-level {
+      height: 12px;
+      background: #00aaff;
+      border-radius: 20px;
+    }
+
+    .certificates img {
+      max-width: 220px;
+      margin: 10px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .certificates img:hover { transform: scale(1.05); }
+
+    .experience {
+      border-left: 3px solid #00aaff;
+      padding-left: 20px;
+    }
+    .experience-item { margin-bottom: 25px; }
+    .experience-item h4 { margin: 0; color: #0077cc; }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .contact a {
+      margin: 0 10px;
+      color: #0077cc;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1a1a2e;
+      color: #fff;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>[L Habishalini] · Data Analyst</h1>
+    <h1>L Habishalini</h1>
     <nav>
+      <a href="#home">Home</a>
       <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <a href="resume.pdf" target="_blank">Resume</a>
     </nav>
   </header>
 
+  <!-- Home -->
+  <section id="home" class="show">
+    <img src="your-photo.jpg" alt="Profile Photo">
+    <h2>Hello, I'm L Habishalini</h2>
+    <p>E-commerce Specialist | Data Analytics Enthusiast | BTEC HND in Software Engineering | Data Science & ML (DiDM) Diploma</p>
+    <a href="resume.pdf" class="btn" download>Download Resume</a>
+  </section>
+
+  <!-- About -->
   <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I’m <strong>[L Habishalini]</strong>, a Data Analyst skilled in SQL, Python, Power BI, Tableau, and Excel. 
-       I turn raw data into insights and dashboards that drive business decisions.</p>
-    <div class="skills">
-      <span>SQL</span>
-      <span>Python (pandas)</span>
-      <span>Power BI / Tableau</span>
-      <span>Excel</span>
-      <span>EDA · Visualization</span>
+    <h2>Professional Summary</h2>
+    <p>
+      Dynamic professional with 5+ years of experience in data-driven roles across administration and e-commerce, 
+      backed by a Higher National Diploma (HND) in Software Engineering. Passionate about transforming data into insights, 
+      with a clear goal to grow as a Data Analyst by combining technical skills, business acumen, and a results-oriented approach. 
+      Preparing to pursue a BSc top-up in Data Science to further enhance analytical and decision-making capabilities.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills Summary</h2>
+    <div class="skill"><p>Python / Pandas / NumPy</p><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
+    <div class="skill"><p>SQL / Databases (MySQL, Linux, Windows)</p><div class="skill-bar"><div class="skill-level" style="width:80%"></div></div></div>
+    <div class="skill"><p>DAX / Power BI</p><div class="skill-bar"><div class="skill-level" style="width:90%"></div></div></div>
+    <div class="skill"><p>R (basic), Scikit-learn, Statsmodels</p><div class="skill-bar"><div class="skill-level" style="width:60%"></div></div></div>
+    <div class="skill"><p>Excel / Google Sheets / Microsoft 365</p><div class="skill-bar"><div class="skill-level" style="width:95%"></div></div></div>
+    <div class="skill"><p>E-commerce Platforms (Amazon, eBay, Magento, ShipStation)</p><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
+    <div class="skill"><p>Soft Skills: Analytical Thinking, Problem-Solving, Project Management, Team Collaboration</p></div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications">
+    <h2>Certifications & Education</h2>
+    <ul>
+      <li>Diploma in Data Science & Machine Learning – Skill Development Council Canada (Feb 2025)</li>
+      <li>Pearson BTEC Higher National Diploma in Computing (Software Engineering) – London Metropolitan University (2022–2025)</li>
+      <li>G.C.E A/L in Physical Science Stream (Maths, Combined Maths, ICT, Physics) – Completed in 2019</li>
+    </ul>
+    <div class="certificates">
+      <img src="cert1.jpg" alt="Diploma in Data Science & Machine Learning">
+      <img src="cert2.jpg" alt="Pearson BTEC HND Software Engineering">
+      <img src="cert3.jpg" alt="G.C.E A/L Certificate">
     </div>
   </section>
 
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <div class="experience">
+      <div class="experience-item">
+        <h4>E-commerce Specialist | Webdelico LLC / Best Care Security Services (Pvt) Ltd</h4>
+        <p>Managed e-commerce operations, product listings, data analysis, and order fulfillment across Amazon, eBay, and Magento platforms.</p>
+      </div>
+      <div class="experience-item">
+        <h4>Office Assistant | Best Care Security Services (Pvt) Ltd</h4>
+        <p>Oct 2019 – Oct 2020 (1 yr 1 mo) – Supported office administration and operational tasks with attention to detail and efficiency.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-
-      <!-- Project 1 -->
-      <div class="card">
-        <img src="ecommerce-dashboard.png" alt="E-commerce Sales Dashboard screenshot">
-        <h3>E-commerce Sales Dashboard</h3>
-        <p>Interactive dashboard tracking revenue, profit, and regional performance on 10k+ orders. Automated cleaning with SQL; slicers for time, category, and region.</p>
-        <div class="tags"><span>Power BI</span><span>SQL</span><span>DAX</span></div>
-        <a href="https://github.com/yourusername/ecommerce-dashboard" target="_blank">GitHub Repo</a>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="card">
-        <img src="customer-churn.png" alt="Customer churn project screenshot">
-        <h3>Customer Churn Prediction</h3>
-        <p>Logistic regression model (≈82% accuracy) on telecom data to predict churn and highlight top drivers using feature importance and SHAP-like insights.</p>
-        <div class="tags"><span>Python</span><span>Pandas</span><span>Scikit-learn</span></div>
-        <a href="https://github.com/yourusername/customer-churn" target="_blank">GitHub Repo</a>
-      </div>
-
+      <div class="project-card"><h3>HR Dashboard</h3><p>Designed an interactive HR analytics dashboard in Power BI for workforce insights.</p></div>
+      <div class="project-card"><h3>Logistics System</h3><p>Developed Warehouse & Supply Chain Management System in C#.NET with database integration.</p></div>
+      <div class="project-card"><h3>E-commerce Expansion</h3><p>Proposed diversification strategies for Webdelico to expand product range internationally.</p></div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>
-      <strong>Email:</strong> <a href="mailto:youremail@email.com">lhshalini63@gmail.com</a><br>
-      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourlinkedin/" target="_blank">linkedin.com/in/yourlinkedin</a><br>
-      <strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
-    </p>
-    <p>I’m open to Data Analyst roles (remote or Colombo). Feel free to reach out!</p>
+    <p>Email: <a href="mailto:lhshalini63@gmail.com">lhshalini63@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/habishalini-linganeshan/" target="_blank">linkedin.com/in/habishalini-linganeshan</a></p>
+    <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
   </section>
 
   <footer>
-    © [Your Name] · Built with ❤ using GitHub Pages
+    © 2025 L Habishalini. All rights reserved.
   </footer>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const reveal = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const boxTop = sec.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) { sec.classList.add("show"); }
+      });
+    };
+    window.addEventListener("scroll", reveal);
+    reveal();
+  </script>
 </body>
 </html>
