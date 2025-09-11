@@ -7,16 +7,17 @@
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
       background: #f9f9f9;
       color: #333;
       scroll-behavior: smooth;
     }
+
+    /* Header */
     header {
       background: #1a1a2e;
       color: #fff;
-      padding: 20px 40px;
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -24,36 +25,26 @@
       top: 0;
       z-index: 1000;
     }
-    header h1 { margin: 0; font-size: 1.5rem; }
+    header h1 { font-size: 1.3rem; margin: 0; }
     nav a {
       color: #fff;
-      margin-left: 20px;
+      margin-left: 15px;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
     nav a:hover { color: #00aaff; }
 
-    section {
-      padding: 60px 40px;
-      max-width: 1100px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    section.show { opacity: 1; transform: translateY(0); }
+    section { padding: 60px 40px; max-width: 1000px; margin: auto; }
     h2 { color: #1a1a2e; margin-bottom: 20px; }
 
-    #home {
-      text-align: center;
-      padding: 100px 20px;
-    }
+    /* Home */
+    #home { text-align: center; padding: 100px 20px; }
     #home img {
       width: 180px;
       height: 180px;
       border-radius: 50%;
-      border: 5px solid #00aaff;
+      border: 4px solid #00aaff;
     }
     .btn {
       display: inline-block;
@@ -61,41 +52,48 @@
       padding: 12px 24px;
       background: #00aaff;
       color: #fff;
-      border-radius: 6px;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
       transition: background 0.3s;
     }
     .btn:hover { background: #0077cc; }
 
-    .skill { margin-bottom: 15px; }
-    .skill-bar {
-      background: #ddd;
-      border-radius: 20px;
-      overflow: hidden;
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      text-align: center;
     }
-    .skill-level {
-      height: 12px;
-      background: #00aaff;
-      border-radius: 20px;
+    .skill-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(#00aaff 0%, #ddd 0%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      font-weight: bold;
+      transition: background 2s ease;
     }
 
-    .certificates img {
-      max-width: 220px;
+    /* Certifications */
+    .certificates a img {
+      max-width: 200px;
       margin: 10px;
-      border: 2px solid #ddd;
       border-radius: 8px;
+      border: 2px solid #ddd;
       transition: transform 0.3s;
     }
-    .certificates img:hover { transform: scale(1.05); }
+    .certificates a img:hover { transform: scale(1.05); }
 
-    .experience {
-      border-left: 3px solid #00aaff;
-      padding-left: 20px;
-    }
-    .experience-item { margin-bottom: 25px; }
+    /* Experience */
+    .experience-item { margin-bottom: 20px; }
     .experience-item h4 { margin: 0; color: #0077cc; }
 
+    /* Projects */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -105,20 +103,12 @@
       background: #fff;
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .contact a {
-      margin: 0 10px;
-      color: #0077cc;
-      font-weight: bold;
-      text-decoration: none;
-    }
+    /* Contact */
+    .contact a { color: #0077cc; text-decoration: none; margin: 0 8px; }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -129,13 +119,14 @@
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>L Habishalini</h1>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
-      <a href="#certifications">Certifications</a>
+      <a href="#education">Edu & Certification</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
@@ -143,16 +134,16 @@
   </header>
 
   <!-- Home -->
-  <section id="home" class="show">
-    <img src="your-photo.jpg" alt="Profile Photo">
+  <section id="home">
     <h2>Hello, I'm L Habishalini</h2>
-    <p>E-commerce Specialist | Data Analytics Enthusiast | BTEC HND in Software Engineering | Data Science & ML (DiDM) Diploma</p>
-    <a href="resume.pdf" class="btn" download>Download Resume</a>
+    <img src="your-photo.jpg" alt="Profile Photo">
+    <br>
+    <a href="resume.pdf" class="btn" download>Download CV</a>
   </section>
 
   <!-- About -->
   <section id="about">
-    <h2>Professional Summary</h2>
+    <h2>About</h2>
     <p>
       Dynamic professional with 5+ years of experience in data-driven roles across administration and e-commerce, 
       backed by a Higher National Diploma (HND) in Software Engineering. Passionate about transforming data into insights, 
@@ -163,43 +154,59 @@
 
   <!-- Skills -->
   <section id="skills">
-    <h2>Skills Summary</h2>
-    <div class="skill"><p>Python / Pandas / NumPy</p><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
-    <div class="skill"><p>SQL / Databases (MySQL, Linux, Windows)</p><div class="skill-bar"><div class="skill-level" style="width:80%"></div></div></div>
-    <div class="skill"><p>DAX / Power BI</p><div class="skill-bar"><div class="skill-level" style="width:90%"></div></div></div>
-    <div class="skill"><p>R (basic), Scikit-learn, Statsmodels</p><div class="skill-bar"><div class="skill-level" style="width:60%"></div></div></div>
-    <div class="skill"><p>Excel / Google Sheets / Microsoft 365</p><div class="skill-bar"><div class="skill-level" style="width:95%"></div></div></div>
-    <div class="skill"><p>E-commerce Platforms (Amazon, eBay, Magento, ShipStation)</p><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
-    <div class="skill"><p>Soft Skills: Analytical Thinking, Problem-Solving, Project Management, Team Collaboration</p></div>
+    <h2>Skills</h2>
+    <h3>Languages</h3>
+    <div class="skills-grid">
+      <div><div class="skill-circle" data-percent="80">80%</div><p>Python</p></div>
+      <div><div class="skill-circle" data-percent="75">75%</div><p>SQL</p></div>
+      <div><div class="skill-circle" data-percent="70">70%</div><p>DAX</p></div>
+      <div><div class="skill-circle" data-percent="50">50%</div><p>R</p></div>
+    </div>
+
+    <h3>Databases</h3>
+    <div class="skills-grid">
+      <div><div class="skill-circle" data-percent="75">75%</div><p>MySQL</p></div>
+      <div><div class="skill-circle" data-percent="65">65%</div><p>MongoDB</p></div>
+    </div>
+
+    <h3>Libraries</h3>
+    <p>Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn</p>
+
+    <h3>Frameworks / Tools</h3>
+    <p>Jupyter Notebook, Power BI, Microsoft 365, Excel (PivotTables, VLOOKUP, Power Query), Google Analytics, Google Sheets</p>
+
+    <h3>Soft Skills</h3>
+    <p>Analytical Thinking, Problem-Solving, Critical Thinking, Project Management, Time Management, Team Collaboration, Effective Communication, Curiosity, Adaptability, Attention to Detail</p>
+
+    <h3>E-commerce Platforms</h3>
+    <p>Amazon Seller Central, eBay Seller Central, Magento, ShipStation</p>
   </section>
 
-  <!-- Certifications -->
-  <section id="certifications">
-    <h2>Certifications & Education</h2>
+  <!-- Education -->
+  <section id="education">
+    <h2>Education & Certification</h2>
     <ul>
-      <li>Diploma in Data Science & Machine Learning – Skill Development Council Canada (Feb 2025)</li>
-      <li>Pearson BTEC Higher National Diploma in Computing (Software Engineering) – London Metropolitan University (2022–2025)</li>
-      <li>G.C.E A/L in Physical Science Stream (Maths, Combined Maths, ICT, Physics) – Completed in 2019</li>
+      <li>ESOFT Metro Campus, 2021 - March 2024 → Pearson BTEC Higher National Diploma in Software Engineering (HND-COM-SE)</li>
+      <li>WP/NG/Wijayaratnam Hindu Central College (2017–2019) → Completed G.C.E (A/L) in 2019 (Math Stream: Combined Mathematics, ICT, General English, GIT)</li>
+      <li>Introduction to Data Analyst (Power BI Course)</li>
     </ul>
     <div class="certificates">
-      <img src="cert1.jpg" alt="Diploma in Data Science & Machine Learning">
-      <img src="cert2.jpg" alt="Pearson BTEC HND Software Engineering">
-      <img src="cert3.jpg" alt="G.C.E A/L Certificate">
+      <a href="cert1.pdf" target="_blank"><img src="cert1.jpg" alt="Certificate 1"></a>
+      <a href="cert2.pdf" target="_blank"><img src="cert2.jpg" alt="Certificate 2"></a>
     </div>
   </section>
 
   <!-- Experience -->
   <section id="experience">
-    <h2>Work Experience</h2>
-    <div class="experience">
-      <div class="experience-item">
-        <h4>E-commerce Specialist | Webdelico LLC / Best Care Security Services (Pvt) Ltd</h4>
-        <p>Managed e-commerce operations, product listings, data analysis, and order fulfillment across Amazon, eBay, and Magento platforms.</p>
-      </div>
-      <div class="experience-item">
-        <h4>Office Assistant | Best Care Security Services (Pvt) Ltd</h4>
-        <p>Oct 2019 – Oct 2020 (1 yr 1 mo) – Supported office administration and operational tasks with attention to detail and efficiency.</p>
-      </div>
+    <h2>Experience</h2>
+    <div class="experience-item">
+      <h4>E-commerce Specialist | Webdelico (PVT) LTD</h4>
+      <p>October 2020 - Present<br>Managed eBay Marketplace operations, product listings, and analytics.</p>
+    </div>
+    <div class="experience-item">
+      <h4>Data Entry Clerk & Office Administrative Assistant | Best Care Security Services (Pvt) Ltd</h4>
+      <p>October 2019 - October 2020<br>
+      Managed payroll system, performed typing, filing, photocopying, faxing, scanning, data entry, and mailing of memos. Reconciled bank accounts and prepared weekly, monthly, and quarterly reports including Federal Income Tax returns.</p>
     </div>
   </section>
 
@@ -226,16 +233,22 @@
   </footer>
 
   <script>
-    const sections = document.querySelectorAll("section");
-    const reveal = () => {
+    // Animate skill circles when visible
+    const circles = document.querySelectorAll('.skill-circle');
+
+    function animateSkills() {
       const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(sec => {
-        const boxTop = sec.getBoundingClientRect().top;
-        if (boxTop < triggerBottom) { sec.classList.add("show"); }
+      circles.forEach(circle => {
+        const top = circle.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+          const percent = circle.getAttribute('data-percent');
+          circle.style.background = `conic-gradient(#00aaff ${percent}%, #ddd 0)`;
+        }
       });
-    };
-    window.addEventListener("scroll", reveal);
-    reveal();
+    }
+
+    window.addEventListener('scroll', animateSkills);
+    animateSkills();
   </script>
 </body>
 </html>
