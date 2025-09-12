@@ -1,282 +1,599 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L Habishalini | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Linganeshan Habishalini — Portfolio</title>
+  <meta name="description" content="L Habishalini — E-commerce Specialist · Data Analytics Enthusiast" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#071025">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      scroll-behavior: smooth;
+    :root{
+      /* Global theme */
+      --bg-top: #0f172a;       /* subtle blue-black */
+      --bg-bottom: #041026;    /* deeper bottom */
+      --card-alpha: 0.035;     /* card translucency */
+      --card-border: rgba(255,255,255,0.04);
+      --muted: #94a3b8;
+      --accent: #7c3aed;
+      --accent-2: #06b6d4;
+      --radius: 12px;
+      --maxwidth: 1100px;
+      --gap: 1.2rem;
+      --ff: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --glass-shadow: 0 8px 30px rgba(2,6,23,0.6);
     }
 
-    /* Header */
-    header {
-      background: #4a0830;
-      color: #fff;
-      padding: 15px 40px;
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff);
+      color: #e6eef8;
+      background: linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .container{max-width:var(--maxwidth); margin:0 auto; padding:2rem;}
+    header{position:sticky; top:0; z-index:60; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .navwrap{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.6rem 0; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-bottom:1px solid rgba(255,255,255,0.02);}
+
+    .logo{display:flex; align-items:center; gap:0.75rem; text-decoration:none; color:inherit}
+    .logo .mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6); display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav{display:flex; gap:1rem; align-items:center}
+    .navlinks{display:flex; gap:0.6rem; align-items:center}
+    .navlinks a{color:var(--muted); text-decoration:none; padding:0.45rem 0.75rem; border-radius:8px}
+    .navlinks a:hover{color:#fff; background: rgba(255,255,255,0.03)}
+    .cta{padding:0.45rem 0.85rem; border-radius:10px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; text-decoration:none; font-weight:600}
+    .hamburger{display:none; background:none;border:0;color:var(--muted); cursor:pointer; font-size:1.2rem}
+    @media (max-width:900px){
+      .navlinks{display:none}
+      .hamburger{display:block}
+    }
+
+    /* unified card style (glass) - use everywhere */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,var(--card-alpha)), rgba(255,255,255, calc(var(--card-alpha) - 0.01)));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1fr 360px; gap:2rem; align-items:center; padding:2.4rem 0}
+    .hero h1{font-size:2.05rem;margin:0 0 0.5rem}
+    .lead{color:var(--muted); margin-bottom:1rem}
+    .profile{display:flex; flex-direction:column; gap:1rem; align-items:center}
+    .avatar{width:100%; max-width:320px; border-radius:14px; overflow:hidden}
+    .avatar img{display:block; width:100%; height:auto; object-fit:cover}
+
+    /* Sections */
+    section{padding:3rem 0; background: transparent;} /* transparent so the body gradient shows */
+    h2{margin:0 0 1rem; font-size:1.25rem}
+
+    /* Projects grid */
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--gap)}
+    .project{padding:1rem; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,var(--card-alpha)), rgba(0,0,0,0.02));}
+    .project img{width:100%; height:160px; object-fit:cover; border-radius:8px}
+    .project h3{margin:0.6rem 0 0.25rem}
+    .tech{color:var(--muted); font-size:0.9rem}
+
+    /* Skills (restored fully, using same card style) */
+    .skills-card {
+      padding: 1.6rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 { font-size: 1.3rem; margin: 0; }
-    nav a {
-      color: #fff;
-      margin-left: 15px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #00aaff; }
-
-    section { padding: 60px 40px; max-width: 1000px; margin: auto; }
-    h2 { color: #1a1a2e; margin-bottom: 20px; }
-
-    /* Home */
-    #home { text-align: center; padding: 100px 20px; }
-    #home img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 4px solid #00aaff;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #00aaff;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .btn:hover { background: #0077cc; }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      text-align: center;
-    }
-    .skill-circle {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: conic-gradient(#00aaff 0%, #ddd 0%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: auto;
-      font-weight: bold;
-      transition: background 2s ease;
-    }
-
-    /* Certifications */
-    .certificates a img {
-      max-width: 200px;
-      margin: 10px;
-      border-radius: 8px;
-      border: 2px solid #ddd;
-      transition: transform 0.3s;
-    }
-    .certificates a img:hover { transform: scale(1.05); }
-
-    /* Experience */
-    .experience-item { margin-bottom: 20px; }
-    .experience-item h4 { margin: 0; color: #0077cc; }
-
-    /* Projects */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .project-card {
-      background: #fff;
-      padding: 20px;
+      flex-direction: column;
+      gap: 1.15rem;
+      background: linear-gradient(180deg, rgba(255,255,255,var(--card-alpha)), rgba(255,255,255, calc(var(--card-alpha) - 0.01)));
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      max-width: 100%;
+      margin: auto;
+    }
+    .skill-group h3 { margin-bottom: 0.6rem; color: #fff; font-size:1rem; }
+    .skill-row { display:flex; justify-content:space-between; gap:1rem; margin-bottom:0.6rem; align-items:center; flex-wrap:wrap; }
+    .skill { display:flex; align-items:center; gap:0.6rem; flex:1; min-width:180px; }
+    .skill.empty { visibility:hidden; }
+    .skill i, .library-logo { width:24px; height:24px; flex-shrink:0; }
+    .library-logo { object-fit:contain }
+    .name { min-width:140px; color: #fff; font-weight:500; }
+    .progress { flex-grow:1; max-width:240px; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; position:relative; }
+    .progress span { display:block; height:100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius:7px; transition: width 900ms cubic-bezier(.2,.9,.3,1); width:0; }
+    .percent { min-width:40px; text-align:right; color:#fff; font-size:0.85rem; margin-left:0.4rem; }
+    .skill:hover .progress span { filter: brightness(1.05); transform: translateZ(0); }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:700px){
+      .grid{grid-template-columns:1fr}
+      .skill-row{flex-direction:column; align-items:stretch}
+      .name { min-width: auto; }
+      .container{padding:1rem}
     }
 
     /* Contact */
-    .contact a { color: #0077cc; text-decoration: none; margin: 0 8px; }
+    .contactcols{display:grid; grid-template-columns:1fr 1fr; gap:var(--gap)}
+    form{display:flex; flex-direction:column; gap:0.6rem}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.08); padding:0.7rem; border-radius:8px; color:inherit}
+    button[type=submit]{padding:0.6rem 1rem; border-radius:10px; border:0; cursor:pointer; font-weight:600; background:var(--accent); color:#fff}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #1a1a2e;
-      color: #fff;
-      margin-top: 40px;
-    }
+    footer{padding:2rem 0; color:var(--muted); text-align:center}
+
+    /* helpers */
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:1rem; align-items:center}
+    a.link{color:var(--accent); text-decoration:none}
+
+    /* animation */
+    .fadein{opacity:0; transform:translateY(6px); animation:fadeIn 0.8s ease forwards}
+    @keyframes fadeIn{to{opacity:1; transform:none}}
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <h1>L Habishalini</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education & Certs</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container navwrap">
+      <a class="logo" href="#home">
+        <div class="mark">LH</div>
+        <div>
+          <div style="font-weight:700">L Habishalini</div>
+          <div class="muted" style="font-size:0.78rem">E-commerce Specialist · Data Analytics Enthusiast</div>
+        </div>
+      </a>
+
+      <nav>
+        <div class="navlinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <button class="hamburger" aria-label="Open menu" id="hamb">☰</button>
+      </nav>
+    </div>
   </header>
 
-<!-- Home Section -->
-<section id="home" 
-         style="display: flex; align-items: center; justify-content: space-between; padding: 60px 10%; background: linear-gradient(135deg, #eddfe8, #f7ebf3);
- font-family: Arial, sans-serif; flex-wrap: wrap;">
+  <main class="container">
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div>
+        <h1 class="fadein">Hi, I'm <span style="color:var(--accent)">Linganeshan Habishalini</span></h1>
+        <p class="lead">"Turning analytics into action, guiding strategy, and fueling growth"</p>
 
-  <!-- Left Content -->
-  <div style="flex: 1; min-width: 280px; max-width: 600px;">
-    <h3 style="color: #6c63ff; font-size: 30px; margin-bottom: 10px;">Hello, I am</h3>
-    <h1 style="font-size: 40px; font-weight: bold; margin: 10px 0; color: #1a1a2e;">L Habishalini</h1>
-    <h2 style="font-size: 20px; color: #444; margin-bottom: 20px;">E-commerce Specialist | Data Analytics Enthusiast</h2>
-    <p style="font-size: 18px; color: #555; line-height: 1.6; margin-bottom: 25px;">
-      Uncovering insights, enabling decisions, driving growth.
-    </p>
-    <a href="resume.pdf" download 
-       style="background-color: #6c63ff; color: #fff; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: 0.3s;">
-       Download Resume
-    </a>
-  </div>
+        <div class="row" style="align-items:center; gap:1rem; flex-wrap:wrap;">
+          <a class="cta" href="/resume.pdf" target="_blank"><i class="fas fa-file-alt" style="margin-right:6px;"></i> View Resume</a>
 
- <!-- Right Image -->
-<div style="flex: 1; display: flex; justify-content: center; min-width: 200px; margin-top: 20px;">
-  <img src="myphoto.jpg" alt="Profile Photo"
-       style="width: 280px; max-width: 100%; height: auto; object-fit: cover; border-radius: 0%; border: 0px solid #370c38; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-</div>
+          <div class="row" style="gap:0.8rem;">
+            <a href="http://www.linkedin.com/in/habishalini-linganeshan" target="_blank" style="color:var(--muted); font-size:1.4rem;"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:lhshalini63@gmail.com" style="color:var(--muted); font-size:1.4rem;"><i class="fas fa-envelope"></i></a>
+            <a href="https://medium.com/@lhshalini" target="_blank" style="color:var(--muted); font-size:1.4rem;"><i class="fab fa-medium"></i></a>
+          </div>
+        </div>
+      </div>
 
-<!-- Optional responsive tweak -->
-<style>
-@media (max-width: 768px) {
-  div img {
-    width: 180px; /* smaller on mobile */
-    margin-top: 15px;
-  }
-}
-</style>
-</section>
+      <aside class="card profile fadein">
+        <div class="avatar">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="Your photo">
+        </div>
+      </aside>
+    </section>
 
-  <!-- About -->
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      Dynamic professional with 5+ years of experience in data-driven roles across administration and e-commerce, 
-      backed by a Higher National Diploma (HND) in Software Engineering. Passionate about transforming data into insights, 
-      with a clear goal to grow as a Data Analyst by combining technical skills, business acumen, and a results-oriented approach. 
-      Preparing to pursue a BSc top-up in Data Science to further enhance analytical and decision-making capabilities.
-    </p>
-  </section>
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>I’m a developer focused on delivering fast, accessible, and maintainable interfaces. I enjoy working on projects that make people’s lives easier — from interactive dashboards to polished landing pages.</p>
+      </div>
+    </section>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <h3>Languages</h3>
-    <div class="skills-grid">
-      <div><div class="skill-circle" data-percent="80">80%</div><p>Python</p></div>
-      <div><div class="skill-circle" data-percent="75">75%</div><p>SQL</p></div>
-      <div><div class="skill-circle" data-percent="70">70%</div><p>DAX</p></div>
-      <div><div class="skill-circle" data-percent="50">50%</div><p>R</p></div>
-    </div>
+    <!-- Skills Section (complete & restored) -->
+    <section id="skills">
+      <h2>Skills</h2>
 
-    <h3>Databases</h3>
-    <div class="skills-grid">
-      <div><div class="skill-circle" data-percent="75">75%</div><p>MySQL</p></div>
-      <div><div class="skill-circle" data-percent="65">65%</div><p>MongoDB</p></div>
-    </div>
+      <div class="skills-card">
+        <!-- Languages -->
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fab fa-python"></i>
+              <span class="name">Python</span>
+              <div class="progress"><span data-width="85%"></span></div>
+              <span class="percent">85%</span>
+            </div>
 
-    <h3>Libraries</h3>
-    <p>Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn</p>
+            <div class="skill">
+              <i class="fas fa-database"></i>
+              <span class="name">SQL</span>
+              <div class="progress"><span data-width="80%"></span></div>
+              <span class="percent">80%</span>
+            </div>
+          </div>
 
-    <h3>Frameworks / Tools</h3>
-    <p>Jupyter Notebook, Power BI, Microsoft 365, Excel (PivotTables, VLOOKUP, Power Query), Google Analytics, Google Sheets</p>
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-chart-bar"></i>
+              <span class="name">DAX</span>
+              <div class="progress"><span data-width="75%"></span></div>
+              <span class="percent">75%</span>
+            </div>
 
-    <h3>Soft Skills</h3>
-    <p>Analytical Thinking, Problem-Solving, Critical Thinking, Project Management, Time Management, Team Collaboration, Effective Communication, Curiosity, Adaptability, Attention to Detail</p>
+            <div class="skill">
+              <i class="fas fa-code"></i>
+              <span class="name">R (Basic)</span>
+              <div class="progress"><span data-width="50%"></span></div>
+              <span class="percent">50%</span>
+            </div>
+          </div>
+        </div>
 
-    <h3>E-commerce Platforms</h3>
-    <p>Amazon Seller Central, eBay Seller Central, Magento, ShipStation</p>
-  </section>
+        <!-- Databases -->
+        <div class="skill-group">
+          <h3>Databases</h3>
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-database"></i>
+              <span class="name">MySQL</span>
+              <div class="progress"><span data-width="75%"></span></div>
+              <span class="percent">75%</span>
+            </div>
 
-  <!-- Education -->
-  <section id="education">
-    <h2>Education & Certification</h2>
-    <ul>
-      <li>ESOFT Metro Campus, 2021 - March 2024 → Pearson BTEC Higher National Diploma in Software Engineering (HND-COM-SE)</li>
-      <li>WP/NG/Wijayaratnam Hindu Central College (2017–2019) → Completed G.C.E (A/L) in 2019 (Math Stream: Combined Mathematics, ICT, General English, GIT)</li>
-      <li>Introduction to Data Analyst (Power BI Course)</li>
-    </ul>
-    <div class="certificates">
-      <a href="cert1.pdf" target="_blank"><img src="cert1.jpg" alt="Certificate 1"></a>
-      <a href="cert2.pdf" target="_blank"><img src="cert2.jpg" alt="Certificate 2"></a>
-    </div>
-  </section>
+            <div class="skill">
+              <i class="fas fa-database"></i>
+              <span class="name">MongoDB</span>
+              <div class="progress"><span data-width="65%"></span></div>
+              <span class="percent">65%</span>
+            </div>
+          </div>
+        </div>
 
-  <!-- Experience -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="experience-item">
-      <h4>E-commerce Specialist | Webdelico (PVT) LTD</h4>
-      <p>October 2020 - Present<br>Managed eBay Marketplace operations, product listings, and analytics.</p>
-    </div>
-    <div class="experience-item">
-      <h4>Data Entry Clerk & Office Administrative Assistant | Best Care Security Services (Pvt) Ltd</h4>
-      <p>October 2019 - October 2020<br>
-      Managed payroll system, performed typing, filing, photocopying, faxing, scanning, data entry, and mailing of memos. Reconciled bank accounts and prepared weekly, monthly, and quarterly reports including Federal Income Tax returns.</p>
-    </div>
-  </section>
+        <!-- Libraries -->
+        <div class="skill-group">
+          <h3>Libraries</h3>
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-book"></i>
+              <span class="name">Pandas</span>
+              <div class="progress"><span data-width="85%"></span></div>
+              <span class="percent">85%</span>
+            </div>
 
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card"><h3>HR Dashboard</h3><p>Designed an interactive HR analytics dashboard in Power BI for workforce insights.</p></div>
-      <div class="project-card"><h3>Logistics System</h3><p>Developed Warehouse & Supply Chain Management System in C#.NET with database integration.</p></div>
-      <div class="project-card"><h3>E-commerce Expansion</h3><p>Proposed diversification strategies for Webdelico to expand product range internationally.</p></div>
-    </div>
-  </section>
+            <div class="skill">
+              <i class="fas fa-cogs"></i>
+              <span class="name">NumPy</span>
+              <div class="progress"><span data-width="80%"></span></div>
+              <span class="percent">80%</span>
+            </div>
+          </div>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:lhshalini63@gmail.com">lhshalini63@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/habishalini-linganeshan/" target="_blank">habishalini-linganeshan</a></p>
-    <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
-  </section>
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-chart-line"></i>
+              <span class="name">Matplotlib</span>
+              <div class="progress"><span data-width="70%"></span></div>
+              <span class="percent">70%</span>
+            </div>
+
+            <div class="skill">
+              <i class="fas fa-chart-area"></i>
+              <span class="name">Seaborn</span>
+              <div class="progress"><span data-width="70%"></span></div>
+              <span class="percent">70%</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-brain"></i>
+              <span class="name">Scikit-learn</span>
+              <div class="progress"><span data-width="65%"></span></div>
+              <span class="percent">65%</span>
+            </div>
+
+            <div class="skill empty"></div>
+          </div>
+        </div>
+
+        <!-- Frameworks & Tools -->
+        <div class="skill-group">
+          <h3>Frameworks & Tools</h3>
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-book"></i>
+              <span class="name">Jupyter Notebook</span>
+              <div class="progress"><span data-width="85%"></span></div>
+              <span class="percent">85%</span>
+            </div>
+
+            <div class="skill">
+              <i class="fas fa-chart-pie"></i>
+              <span class="name">Power BI</span>
+              <div class="progress"><span data-width="80%"></span></div>
+              <span class="percent">80%</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-table"></i>
+              <span class="name">Excel (Pivot, VLOOKUP, PQ)</span>
+              <div class="progress"><span data-width="85%"></span></div>
+              <span class="percent">85%</span>
+            </div>
+
+            <div class="skill">
+              <i class="fab fa-microsoft"></i>
+              <span class="name">Microsoft 365</span>
+              <div class="progress"><span data-width="80%"></span></div>
+              <span class="percent">80%</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fab fa-google"></i>
+              <span class="name">Google Analytics</span>
+              <div class="progress"><span data-width="65%"></span></div>
+              <span class="percent">65%</span>
+            </div>
+
+            <div class="skill">
+              <i class="fab fa-google"></i>
+              <span class="name">Google Sheets</span>
+              <div class="progress"><span data-width="75%"></span></div>
+              <span class="percent">75%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-group">
+          <h3>Soft Skills</h3>
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-lightbulb"></i>
+              <span class="name">Analytical Thinking</span>
+              <div class="progress"><span data-width="90%"></span></div>
+              <span class="percent">90%</span>
+            </div>
+
+            <div class="skill">
+              <i class="fas fa-puzzle-piece"></i>
+              <span class="name">Problem-Solving</span>
+              <div class="progress"><span data-width="85%"></span></div>
+              <span class="percent">85%</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-comments"></i>
+              <span class="name">Communication</span>
+              <div class="progress"><span data-width="80%"></span></div>
+              <span class="percent">80%</span>
+            </div>
+
+            <div class="skill">
+              <i class="fas fa-users"></i>
+              <span class="name">Team Collaboration</span>
+              <div class="progress"><span data-width="80%"></span></div>
+              <span class="percent">80%</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-clock"></i>
+              <span class="name">Time Management</span>
+              <div class="progress"><span data-width="75%"></span></div>
+              <span class="percent">75%</span>
+            </div>
+
+            <div class="skill empty"></div>
+          </div>
+        </div>
+
+        <!-- E-commerce & Ops Platforms -->
+        <div class="skill-group">
+          <h3>E-commerce & Ops Platforms</h3>
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fab fa-amazon"></i>
+              <span class="name">Amazon Seller Central</span>
+              <div class="progress"><span data-width="75%"></span></div>
+              <span class="percent">75%</span>
+            </div>
+
+            <div class="skill">
+              <i class="fab fa-ebay"></i>
+              <span class="name">eBay Seller Central</span>
+              <div class="progress"><span data-width="70%"></span></div>
+              <span class="percent">70%</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill">
+              <i class="fas fa-store"></i>
+              <span class="name">Magento</span>
+              <div class="progress"><span data-width="65%"></span></div>
+              <span class="percent">65%</span>
+            </div>
+
+            <div class="skill">
+              <i class="fas fa-shipping-fast"></i>
+              <span class="name">ShipStation</span>
+              <div class="progress"><span data-width="60%"></span></div>
+              <span class="percent">60%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education">
+      <h2>Education & Certifications</h2>
+      <div class="card">
+        <ul>
+          <li><strong>BSc in Computer Science</strong> — University Name (2018 - 2022)</li>
+          <li><strong>Certified Web Developer</strong> — Certificate Authority (2023)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience">
+      <h2>Work Experience</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Frontend Developer</strong> — Company A (2022 - Present)<br><span class="muted">Built and maintained responsive web apps with React and Tailwind.</span></li>
+          <li><strong>Intern Web Developer</strong> — Company B (2021)<br><span class="muted">Worked on UI/UX improvements and optimized page performance.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="project card">
+          <img loading="lazy" src="https://via.placeholder.com/800x450.png?text=Project+1" alt="Project 1">
+          <h3>Project One</h3>
+          <p class="tech">React · Netlify · Tailwind</p>
+          <p class="muted">Short description of the project. What problem it solves and what you built.</p>
+          <div style="margin-top:0.6rem"><a class="link" href="#">View</a> · <a class="link" href="#">Code</a></div>
+        </article>
+
+        <article class="project card">
+          <img loading="lazy" src="https://via.placeholder.com/800x450.png?text=Project+2" alt="Project 2">
+          <h3>Project Two</h3>
+          <p class="tech">Vue · Firebase · Vite</p>
+          <p class="muted">Short description of the project with highlights and metrics if available.</p>
+          <div style="margin-top:0.6rem"><a class="link" href="#">View</a> · <a class="link" href="#">Code</a></div>
+        </article>
+
+        <article class="project card">
+          <img loading="lazy" src="https://via.placeholder.com/800x450.png?text=Project+3" alt="Project 3">
+          <h3>Project Three</h3>
+          <p class="tech">Python · Flask · PostgreSQL</p>
+          <p class="muted">A backend-heavy project with a clean UI and useful APIs.</p>
+          <div style="margin-top:0.6rem"><a class="link" href="#">View</a> · <a class="link" href="#">Code</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card contactcols">
+        <div>
+          <p>If you’d like to work together or have any questions, send me a message or email me directly.</p>
+          <p class="muted">Email: <a class="link" href="mailto:lhshalini63@gmail.com">lhshalini63@gmail.com</a></p>
+          <p class="muted">Location: Colombo, Sri Lanka</p>
+        </div>
+
+        <form action="https://formspree.io/f/yourformid" method="POST">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <textarea name="message" rows="5" placeholder="Message..." required></textarea>
+          <button type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    © 2025 L Habishalini. All rights reserved.
+    <div class="container">
+      <div style="margin-bottom:0.6rem">© <span id="year"></span> L Habishalini. All rights reserved.</div>
+    </div>
   </footer>
 
   <script>
-    // Animate skill circles when visible
-    const circles = document.querySelectorAll('.skill-circle');
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    function animateSkills() {
-      const triggerBottom = window.innerHeight * 0.85;
-      circles.forEach(circle => {
-        const top = circle.getBoundingClientRect().top;
-        if (top < triggerBottom) {
-          const percent = circle.getAttribute('data-percent');
-          circle.style.background = `conic-gradient(#00aaff ${percent}%, #ddd 0)`;
+    // mobile menu (simple toggle)
+    const hamb = document.getElementById('hamb');
+    hamb?.addEventListener('click', ()=>{
+      // toggle a simple small overlay menu for mobile
+      const existing = document.getElementById('mobileMenu');
+      if(existing){
+        existing.remove();
+        return;
+      }
+      const menu = document.createElement('div');
+      menu.id = 'mobileMenu';
+      menu.style.position = 'fixed';
+      menu.style.right = '12px';
+      menu.style.top = '64px';
+      menu.style.background = 'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02))';
+      menu.style.border = '1px solid rgba(255,255,255,0.04)';
+      menu.style.padding = '0.6rem';
+      menu.style.borderRadius = '10px';
+      menu.style.boxShadow = '0 8px 30px rgba(2,6,23,0.6)';
+      menu.innerHTML = `
+        <a href="#home" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Home</a>
+        <a href="#about" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">About</a>
+        <a href="#skills" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Skills</a>
+        <a href="#projects" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Projects</a>
+      `;
+      document.body.appendChild(menu);
+      // remove when clicked outside
+      const closeOnClickOutside = (e) => {
+        if(!menu.contains(e.target) && e.target !== hamb) { menu.remove(); document.removeEventListener('click', closeOnClickOutside); }
+      }
+      setTimeout(()=>document.addEventListener('click', closeOnClickOutside), 10);
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href && href.length > 1){
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if(target) target.scrollIntoView({behavior:'smooth'});
         }
       });
-    }
+    });
 
-    window.addEventListener('scroll', animateSkills);
-    animateSkills();
+    // Skills progress animation (restores widths from data-width)
+    document.addEventListener("DOMContentLoaded", () => {
+      const bars = document.querySelectorAll(".progress span");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            const el = entry.target;
+            const w = el.getAttribute('data-width') || el.dataset.width || '0%';
+            // small timeout so transition is visible even if already in view
+            setTimeout(()=> el.style.width = w, 60);
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.35 });
+      bars.forEach(b => observer.observe(b));
+    });
   </script>
 </body>
 </html>
