@@ -43,20 +43,14 @@
     }
 
     .container{max-width:var(--maxwidth); margin:0 auto; padding:2rem;}
-    header {
-    position: fixed;   /* CHANGE sticky → fixed */
-    top: 0;
-    width: 100%;       /* ADD width so it stretches */
-    z-index: 999;      /* keeps it above everything */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);}
+    header{position:sticky; top:0; z-index:60; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
     .navwrap{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.6rem 0; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-bottom:1px solid rgba(255,255,255,0.02);}
 
     .logo{display:flex; align-items:center; gap:0.75rem; text-decoration:none; color:inherit}
     .logo .mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6); display:flex;align-items:center;justify-content:center;font-weight:700}
     nav{display:flex; gap:1rem; align-items:center}
     .navlinks{display:flex; gap:0.6rem; align-items:center}
-    .navlinks a{color:var(--muted); text-decoration:none; padding:0.45rem 0.75rem; border-radius:8px;font-weight: 420;letter-spacing: 0.3px;}
+    .navlinks a{color:var(--muted); text-decoration:none; padding:0.45rem 0.75rem; border-radius:8px;font-weight: 350;letter-spacing: 0.6px;}
     .navlinks a:hover,
     #mobileMenu a:hover {
     color: #fff !important;
