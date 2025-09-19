@@ -171,7 +171,7 @@
           <a href="#contact">Contact</a>
         </div>
 
-        <button class="hamburger" aria-label="Open menu" id="hamb">☰</button>
+        <button class="hamburger" aria-label="Open menu" id="hamburger">☰</button>
       </nav>
     </div>
   </header>
@@ -539,7 +539,7 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // mobile menu (simple toggle)
-    const hamb = document.getElementById('hamb');
+    const hamb = document.getElementById('hamburger');
     hamb?.addEventListener('click', ()=>{
       // toggle a simple small overlay menu for mobile
       const existing = document.getElementById('mobileMenu');
@@ -563,7 +563,15 @@
         <a href="#skills" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Skills</a>
         <a href="#projects" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Projects</a>
       `;
-      document.body.appendChild(menu);
+      menu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.remove();
+  });
+});
+
+      
+      document.querySelector('header').appendChild(menu);
+menu.style.position = 'absolute';
       // remove when clicked outside
       const closeOnClickOutside = (e) => {
         if(!menu.contains(e.target) && e.target !== hamb) { menu.remove(); document.removeEventListener('click', closeOnClickOutside); }
