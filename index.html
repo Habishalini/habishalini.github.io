@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Linganeshan Habishalini — Portfolio</title>
-  <meta name="description" content="L Habishalini — E-commerce Specialist · Data Analytics Enthusiast" />
+  <meta name="description" content="L Habishalini — E-commerce Specialist · Data Science Enthusiast" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <meta name="theme-color" content="#071025">
 
@@ -12,10 +12,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+      }
+  
     :root{
       /* Global theme */
-      --bg-top: #0f172a;       /* subtle blue-black */
-      --bg-bottom: #041026;    /* deeper bottom */
+      --bg-top: #0a0a0a;;       /* subtle blue-black */
+      --bg-bottom: #0a0a0a;    /* deeper bottom */
       --card-alpha: 0.035;     /* card translucency */
       --card-border: rgba(255,255,255,0.04);
       --muted: #94a3b8;
@@ -24,7 +30,7 @@
       --radius: 12px;
       --maxwidth: 1100px;
       --gap: 1.2rem;
-      --ff: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --ff: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
       --glass-shadow: 0 8px 30px rgba(2,6,23,0.6);
     }
 
@@ -33,17 +39,73 @@
     html,body{height:100%}
     body{
       margin:0;
-      font-family:var(--ff);
-      color: #e6eef8;
-      background: linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      overflow-x: hidden;      
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+      line-height:1.5;
       -webkit-font-smoothing:antialiased;
     }
 
+    .animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    }
+    .floating-icon {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.15;
+    animation: floatIcon 25s infinite ease-in-out;
+    }
+    @keyframes floatIcon {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.15; }
+    25% { transform: translate(150px, -100px) rotate(90deg); opacity: 0.25; }
+    50% { transform: translate(300px, 50px) rotate(180deg); opacity: 0.15; }
+    75% { transform: translate(150px, 200px) rotate(270deg); opacity: 0.25; }
+    }
+    .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(102, 126, 234, 0.5);
+    border-radius: 50%;
+    animation: float 20s infinite;
+    }
+    @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(100px, 100px); }
+    50% { transform: translate(200px, -50px); }
+    75% { transform: translate(-100px, 150px); }
+    }
+    @keyframes slideData {
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateX(200%); opacity: 0; }
+    }
     .container{max-width:var(--maxwidth); margin:0 auto; padding:2rem;}
-    header{position:sticky; top:0; z-index:60; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  width: 100%;       /* ensures header is full width */
+  height: 80px;       /* desired height */
+}
+
+header .container {
+  max-width: 100%;    /* ignore max-width if you want full width */
+  padding: 1 2rem;    /* horizontal spacing if needed */
+  margin: 0;
+}
     .navwrap{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.6rem 0; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-bottom:1px solid rgba(255,255,255,0.02);}
     .logo{display:flex; align-items:center; gap:0.75rem; text-decoration:none; color:inherit}
     .logo .mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6); display:flex;align-items:center;justify-content:center;font-weight:700}
@@ -53,11 +115,11 @@
     .navlinks a:hover,
     #mobileMenu a:hover {
     color: #fff !important;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    background:  linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     box-shadow: 0 2px 10px rgba(0,0,0,0.25);
     border-radius: 8px;
     transition: all 0.3s ease;}
-    .cta{padding:0.45rem 0.85rem; border-radius:10px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; text-decoration:none; font-weight:600}
+    .cta{padding:0.45rem 0.85rem; border-radius:10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color:white; text-decoration:none; font-weight:600}
     .hamburger{display:none; background:none;border:0;color:var(--muted); cursor:pointer; font-size:1.2rem}
     @media (max-width:900px){
       .navlinks{display:none}
@@ -65,21 +127,86 @@
     }
 
     /* unified card style (glass) - use everywhere */
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,var(--card-alpha)), rgba(255,255,255, calc(var(--card-alpha) - 0.01)));
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      box-shadow: var(--glass-shadow);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+    .card {
+    background: linear-gradient(180deg, rgba(255,255,255,var(--card-alpha)), rgba(255,255,255, calc(var(--card-alpha) - 0.01)));
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease; /* <— Add this for smooth hover */
+    }
+    .card:hover {
+    transform: translateY(-10px); /* lifts the card up */
+    border-color: rgba(102, 126, 234, 0.5); /* change border color */
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2); /* bigger shadow */
+    }
+
+
+.data-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+    animation: slideData 15s infinite linear;
+    }
+    .code-snippet {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: rgba(102, 126, 234, 0.2);
+    white-space: nowrap;
+    animation: codeFloat 30s infinite linear;
+    }
+    /* Education & Certifications */
+#education .card h3 {
+    color: #667eea; /* same as Skills headings */
+    margin-bottom: 0.8rem;
+    font-size: 1.25rem;
     }
 
     /* Hero */
-    .hero{display:grid; grid-template-columns:1fr 360px; gap:2rem; align-items:center; padding:2.4rem 0}
+    .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 5%;
+    }
+    .hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%);
+    animation: gradientShift 10s ease infinite;
+    }
+
     .hero h1{font-size:2.05rem;margin:0 0 0.5rem}
     .lead{color:var(--muted); margin-bottom:1rem}
-    .profile{display:flex; flex-direction:column; gap:1rem; align-items:center}
+   .profile {
+  --size: 250px; /* Increased size from 150 → 250 */
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto; /* Centers horizontally */
+  padding-left: 30px; /* Adds left spacing */
+  padding-right: 30px; /* Adds right spacing */
+
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 5px solid rgba(102, 126, 234, 0.3);
+
+  font-size: calc(var(--size) * 0.35);
+}
+
     .avatar{width:100%; max-width:320px; border-radius:14px; overflow:hidden}
     .avatar img{display:block; width:100%; height:auto; object-fit:cover}
 
@@ -93,43 +220,54 @@
     .project img{width:100%; height:160px; object-fit:cover; border-radius:8px}
     .project h3{margin:0.6rem 0 0.25rem}
     .tech{color:var(--muted); font-size:0.9rem}
+    
+    /* Certifications – identical to Projects */
+.cert-card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.cert-card h3{
+  margin:0.6rem 0 0.25rem;
+}
+
+.cert-card .tech{
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+.cert-details{
+  margin-top:0.6rem;
+  font-size:0.9rem;
+  color:var(--muted);
+  line-height:1.5;
+  display:none;
+}
+
+.cert-card.active .cert-details{
+  display:block;
+}
+
+.cert-toggle{
+  margin-top:0.6rem;
+  display:inline-block;
+  font-size:0.9rem;
+  color:var(--accent);
+  font-weight:600;
+  cursor:pointer;
+}
+
 
     /* Skills (restored fully, using same card style) */
-    .skills-card {
-      padding: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-      background: linear-gradient(180deg, rgba(255,255,255,var(--card-alpha)), rgba(255,255,255, calc(var(--card-alpha) - 0.01)));
-      border-radius: 12px;
-      border: 1px solid var(--card-border);
-      box-shadow: var(--glass-shadow);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      max-width: 100%;
-      margin: auto;
-    }
-    .skill-group h3 { margin-bottom: 0.6rem; color: #fff; font-size:1rem; }
-    .skill-row { display:flex; justify-content:space-between; gap:1rem; margin-bottom:0.6rem; align-items:center; flex-wrap:wrap; }
-    .skill { display:flex; align-items:center; gap:0.6rem; flex:1; min-width:180px; }
-    .skill.empty { visibility:hidden; }
-    .skill i, .library-logo { width:24px; height:24px; flex-shrink:0; }
-    .library-logo { object-fit:contain }
-    .name { min-width:140px; color: #fff; font-weight:500; }
-    .progress { flex-grow:1; max-width:240px; height:14px; background:rgba(255,255,255,0.06); border-radius:7px; overflow:hidden; position:relative; }
-    .progress span { display:block; height:100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius:7px; transition: width 900ms cubic-bezier(.2,.9,.3,1); width:0; }
-    .percent { min-width:40px; text-align:right; color:#fff; font-size:0.85rem; margin-left:0.4rem; }
-    .skill:hover .progress span { filter: brightness(1.05); transform: translateZ(0); }
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:700px){
-      .grid{grid-template-columns:1fr}
-      .skill-row{flex-direction:column; align-items:stretch}
-      .name { min-width: auto; }
-      .container{padding:1rem}
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; } 
+    .skill-category { background: rgba(26, 26, 26, 0.8); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem; border: 1px solid rgba(102, 126, 234, 0.2); transition: all 0.3s; } 
+    .skill-category:hover { transform: translateY(-10px); border-color: rgba(102, 126, 234, 0.5); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2); } 
+    .skill-category h3 { color: #667eea; margin-bottom: 1.5rem; font-size: 1.3rem; } 
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; } 
+    .skill-tag { padding: 0.5rem 1rem; background: rgba(102, 126, 234, 0.2); border-radius: 20px; font-size: 0.9rem; color: #c0c0c0; transition: all 0.3s; } 
+    .skill-tag:hover { background: rgba(102, 126, 234, 0.4); color: #ffffff; transform: scale(1.05); }
 
     /* Contact */
     .contactcols{display:grid; grid-template-columns:1fr 1fr; gap:var(--gap)}
@@ -150,13 +288,14 @@
   </style>
 </head>
 <body>
+  <div id="particlesBg" class="animated-bg"></div>
   <header>
-    <div class="container navwrap">
+       <div class="container navwrap">
       <a class="logo" href="#home">
         <div class="mark">LH</div>
         <div>
           <div style="font-weight:700">L Habishalini</div>
-          <div class="muted" style="font-size:0.78rem">E-commerce Specialist · Data Analytics Enthusiast</div>
+          <div class="muted" style="font-size:0.78rem">E-commerce Specialist · Data Science Enthusiast</div>
         </div>
       </a>
 
@@ -168,6 +307,7 @@
           <a href="#education">Education</a>
           <a href="#experience">Work</a>
           <a href="#projects">Projects</a>
+          <a href="#certifications">Certifications</a>
           <a href="#contact">Contact</a>
         </div>
 
@@ -203,279 +343,174 @@
 
     <!-- About -->
     <section id="about">
-      <h2>About</h2>
+      <h2>About Me</h2>
       <div class="card">
-        <p>Driven by a strong passion for analytics, I seek to transform insights into actionable strategies and advance into an analytical role.   I possess a Higher National Diploma (HND) in Software Engineering and am planning to pursue a BSc (Top-Up) in Data Science to further enhance my skill set.</p> <p>With over five years of experience in data-driven roles across administration, payroll, and e-commerce, I possess a strong foundation in technical proficiency and business acumen.</p> <p>In my pursuit of excellence, I actively explore new tools and technologies to sharpen my analytical skills. I believe in the power of continuous learning and the extraordinary potential of data to inspire business growth and innovation.</p>
+        <p>I am an analytics and data science professional passionate about turning data into actionable insights. I hold an HND in Software Engineering and will soon begin a BSc (Hons) in Information Technology (Top-Up Degree) to further strengthen my technical expertise.</p> <p>With over five years of experience across administration, payroll and e-commerce, I combine strong technical skills with business acumen to solve complex problems, optimize processes, and drive informed decisions. 
+<br>I am committed to continuous learning and leveraging emerging tools to deliver data-driven solutions that inspire innovation and support business growth.</p>
       </div>
     </section>
 
     <!-- Skills Section (complete & restored) -->
     <section id="skills">
-      <h2>Skills</h2>
+  <h2> Skills & Expertise</h2>
 
-      <div class="skills-card">
-        <!-- Languages -->
-        <div class="skill-group">
-          <h3>Languages</h3>
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fab fa-python"></i>
-              <span class="name">Python</span>
-              <div class="progress"><span data-width="85%"></span></div>
-              <span class="percent">85%</span>
-            </div>
+  <div class="skills-grid">
 
-            <div class="skill">
-              <i class="fas fa-database"></i>
-              <span class="name">SQL</span>
-              <div class="progress"><span data-width="80%"></span></div>
-              <span class="percent">80%</span>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-chart-bar"></i>
-              <span class="name">DAX</span>
-              <div class="progress"><span data-width="75%"></span></div>
-              <span class="percent">75%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fas fa-code"></i>
-              <span class="name">R (Basic)</span>
-              <div class="progress"><span data-width="50%"></span></div>
-              <span class="percent">50%</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Databases -->
-        <div class="skill-group">
-          <h3>Databases</h3>
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-database"></i>
-              <span class="name">MySQL</span>
-              <div class="progress"><span data-width="75%"></span></div>
-              <span class="percent">75%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fas fa-database"></i>
-              <span class="name">MongoDB</span>
-              <div class="progress"><span data-width="65%"></span></div>
-              <span class="percent">65%</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Libraries -->
-        <div class="skill-group">
-          <h3>Libraries</h3>
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-book"></i>
-              <span class="name">Pandas</span>
-              <div class="progress"><span data-width="85%"></span></div>
-              <span class="percent">85%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fas fa-cogs"></i>
-              <span class="name">NumPy</span>
-              <div class="progress"><span data-width="80%"></span></div>
-              <span class="percent">80%</span>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-chart-line"></i>
-              <span class="name">Matplotlib</span>
-              <div class="progress"><span data-width="70%"></span></div>
-              <span class="percent">70%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fas fa-chart-area"></i>
-              <span class="name">Seaborn</span>
-              <div class="progress"><span data-width="70%"></span></div>
-              <span class="percent">70%</span>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-brain"></i>
-              <span class="name">Scikit-learn</span>
-              <div class="progress"><span data-width="65%"></span></div>
-              <span class="percent">65%</span>
-            </div>
-
-            <div class="skill empty"></div>
-          </div>
-        </div>
-
-        <!-- Frameworks & Tools -->
-        <div class="skill-group">
-          <h3>Frameworks & Tools</h3>
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-book"></i>
-              <span class="name">Jupyter Notebook</span>
-              <div class="progress"><span data-width="85%"></span></div>
-              <span class="percent">85%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fas fa-chart-pie"></i>
-              <span class="name">Power BI</span>
-              <div class="progress"><span data-width="80%"></span></div>
-              <span class="percent">80%</span>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-table"></i>
-              <span class="name">Excel (Pivot, VLOOKUP, PQ)</span>
-              <div class="progress"><span data-width="85%"></span></div>
-              <span class="percent">85%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fab fa-microsoft"></i>
-              <span class="name">Microsoft 365</span>
-              <div class="progress"><span data-width="80%"></span></div>
-              <span class="percent">80%</span>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fab fa-google"></i>
-              <span class="name">Google Analytics</span>
-              <div class="progress"><span data-width="65%"></span></div>
-              <span class="percent">65%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fab fa-google"></i>
-              <span class="name">Google Sheets</span>
-              <div class="progress"><span data-width="75%"></span></div>
-              <span class="percent">75%</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Soft Skills -->
-        <div class="skill-group">
-          <h3>Soft Skills</h3>
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-lightbulb"></i>
-              <span class="name">Analytical Thinking</span>
-              <div class="progress"><span data-width="90%"></span></div>
-              <span class="percent">90%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fas fa-puzzle-piece"></i>
-              <span class="name">Problem-Solving</span>
-              <div class="progress"><span data-width="85%"></span></div>
-              <span class="percent">85%</span>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-comments"></i>
-              <span class="name">Communication</span>
-              <div class="progress"><span data-width="80%"></span></div>
-              <span class="percent">80%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fas fa-users"></i>
-              <span class="name">Team Collaboration</span>
-              <div class="progress"><span data-width="80%"></span></div>
-              <span class="percent">80%</span>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-clock"></i>
-              <span class="name">Time Management</span>
-              <div class="progress"><span data-width="75%"></span></div>
-              <span class="percent">75%</span>
-            </div>
-
-            <div class="skill empty"></div>
-          </div>
-        </div>
-
-        <!-- E-commerce & Ops Platforms -->
-        <div class="skill-group">
-          <h3>E-commerce & Ops Platforms</h3>
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fab fa-amazon"></i>
-              <span class="name">Amazon Seller Central</span>
-              <div class="progress"><span data-width="75%"></span></div>
-              <span class="percent">75%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fab fa-ebay"></i>
-              <span class="name">eBay Seller Central</span>
-              <div class="progress"><span data-width="70%"></span></div>
-              <span class="percent">70%</span>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill">
-              <i class="fas fa-store"></i>
-              <span class="name">Magento</span>
-              <div class="progress"><span data-width="65%"></span></div>
-              <span class="percent">65%</span>
-            </div>
-
-            <div class="skill">
-              <i class="fas fa-shipping-fast"></i>
-              <span class="name">ShipStation</span>
-              <div class="progress"><span data-width="60%"></span></div>
-              <span class="percent">60%</span>
-            </div>
-          </div>
-        </div>
-
+ 
+    <!-- Languages -->
+    <div class="skill-category">
+      <h3>Languages</h3>
+      <div class="skill-tags">
+        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+        <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+        <span class="skill-tag"><i class="fas fa-chart-bar"></i> DAX (Power BI)</span>
+        <span class="skill-tag"><i class="fas fa-laptop-code"></i> HTML/CSS (Basic)</span>
       </div>
-    </section>
+    </div>
+
+    <!-- Databases -->
+    <div class="skill-category">
+      <h3>Databases</h3>
+      <div class="skill-tags">
+        <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+        <span class="skill-tag"><i class="fas fa-database"></i> MongoDB</span>
+      </div>
+    </div>
+
+    <!-- Libraries & Frameworks -->
+    <div class="skill-category">
+      <h3>Libraries & Frameworks</h3>
+      <div class="skill-tags">
+        <span class="skill-tag"><i class="fas fa-book"></i> Pandas</span>
+        <span class="skill-tag"><i class="fas fa-cogs"></i> NumPy</span>
+        <span class="skill-tag"><i class="fas fa-chart-line"></i> Matplotlib</span>
+        <span class="skill-tag"><i class="fas fa-chart-area"></i> Seaborn</span>
+        <span class="skill-tag"><i class="fas fa-brain"></i> Scikit-learn (Basic ML)</span>
+        <span class="skill-tag"><i class="fas fa-robot"></i> TensorFlow</span>
+      </div>
+    </div>
+
+    <!-- Tools & Platforms -->
+    <div class="skill-category">
+      <h3>Tools & Platforms</h3>
+      <div class="skill-tags">
+        <span class="skill-tag"><i class="fas fa-book"></i> Jupyter Notebook</span>
+        <span class="skill-tag"><i class="fas fa-chart-pie"></i> Power BI</span>
+        <span class="skill-tag"><i class="fas fa-table"></i> Advanced MS Excel </span>
+        <span class="skill-tag"><i class="fab fa-google"></i> Google Analytics</span>
+        <span class="skill-tag"><i class="fab fa-google"></i> Google Sheets</span>
+        <span class="skill-tag"><i class="fab fa-github"></i> Git/GitHub</span>
+        <span class="skill-tag"><i class="fas fa-money-check-alt"></i> Payroll Systems</span>
+      </div>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="skill-category">
+      <h3>Soft Skills</h3>
+      <div class="skill-tags">
+        <span class="skill-tag"><i class="fas fa-brain"></i> Analytical & Critical Thinking</span>
+        <span class="skill-tag"><i class="fas fa-puzzle-piece"></i> Problem-Solving</span>
+        <span class="skill-tag"><i class="fas fa-clock"></i> Time Management</span>
+        <span class="skill-tag"><i class="fas fa-tasks"></i> Project Management</span>
+        <span class="skill-tag"><i class="fas fa-users"></i> Team Collaboration</span>
+        <span class="skill-tag"><i class="fas fa-comments"></i> Effective Communication</span>
+        <span class="skill-tag"><i class="fas fa-star"></i> Leadership & Initiative</span>
+        <span class="skill-tag"><i class="fas fa-search"></i> Curiosity</span>
+        <span class="skill-tag"><i class="fas fa-sync-alt"></i> Adaptability</span>
+        <span class="skill-tag"><i class="fas fa-graduation-cap"></i> Continuous Learning</span>
+        <span class="skill-tag"><i class="fas fa-eye"></i> Attention to Detail</span>
+      </div>
+    </div>
+
+    <!-- E-commerce & Ops Platforms -->
+    <div class="skill-category">
+      <h3>E-commerce & Ops</h3>
+      <div class="skill-tags">
+        <span class="skill-tag"><i class="fab fa-amazon"></i> Amazon Seller Central</span>
+        <span class="skill-tag"><i class="fab fa-ebay"></i> eBay Seller Central</span>
+        <span class="skill-tag"><i class="fas fa-store"></i> Magento</span>
+        <span class="skill-tag"><i class="fas fa-shipping-fast"></i> ShipStation</span>
+        <span class="skill-tag"><i class="fas fa-shopping-bag"></i> Shopify (Basic)</span>
+      </div>
+    </div>
+
+</section>
 
     <!-- Education & Certifications -->
     <section id="education">
-      <h2>Education & Certifications</h2>
-      <div class="card">
-        <ul>
-          <li><strong>BSc in Computer Science</strong> — University Name (2018 - 2022)</li>
-          <li><strong>Certified Web Developer</strong> — Certificate Authority (2023)</li>
-        </ul>
-      </div>
-    </section>
+      <h2>Education</h2>
+      
+ <div class="card">
+    <h3>BSc (Hons) in Information Technology  (Top-Up)</h3>
+    <p><strong>Institution:</strong> ANC Education, Sri Lanka <br>
+    <strong>Awarding Body:</strong> University of West London, UK</p><br>
+    <p><strong>Start Date:</strong> February 2026 | <strong>Status:</strong> Enrolled</p><br>
+    <p class="edu-desc">Focused on Managing Information Systems Projects, Business Intelligence Technologies, Databases and Analytics, Enterprise Security Management, and Hands-on Project Experience.</p>
+  </div><br>
+  
+  <div class="card">
+    <h3>Diploma in Data Science & Machine Learning</h3>
+    <p><strong>Institution:</strong>  ICBS International, Colombo<br>
+    <strong>Awarding Body:</strong>  Skill Development Council Canada</p> <br>
+    <p><strong>Start Date:</strong> March 2025 | <strong>Status:</strong> Under Evaluation</p> <br>
+    <p class="edu-desc">Builds Core Skills in Data Science, Machine learning, Deep Leaning & ANN, Statistics, Data Analytics & Visualization using SQL & Python. Focused on Identifying patterns for Business intelligence and Applying Real-world techniques through Hands-on Tools and Final Project.</p>
+  </div><br>
+
+ <div class="card">
+    <h3>BTEC HND in Computing (Software Engineering)</h3>
+    <p><strong>Institution:</strong> ESOFT Metro Campus, Sri Lanka<br>
+    <strong>Awarding Body:</strong> Pearson</p> <br>
+    <p><strong>Start Date:</strong> 2022 | <strong>Status:</strong> Completed (March 2025)</p> <br>
+    <p class="edu-desc">Focused on core computing topics including Programming, Networking, Databases, Software Development Lifecycles, System Analysis & Design, Web & UX Design, Data Structures & Algorithms, and Discrete Mathematics.</p>
+  </div>
 
     <!-- Work Experience -->
     <section id="experience">
       <h2>Work Experience</h2>
-      <div class="card">
-        <ul>
-          <li><strong>Frontend Developer</strong> — Company A (2022 - Present)<br><span class="muted">Built and maintained responsive web apps with React and Tailwind.</span></li>
-          <li><strong>Intern Web Developer</strong> — Company B (2021)<br><span class="muted">Worked on UI/UX improvements and optimized page performance.</span></li>
-        </ul>
-      </div>
-    </section>
+     <div class="card">
+    <h3>E-Commerce Specialis</h3>
+
+  <p>
+    <strong>Webdelico LLC, Delaware USA</strong><br>
+    <strong>Full-time, Remote | Oct 2020 – Nov 2023</strong><br>
+    <strong>Part-time, Remote | Nov 2023 – Present</strong>
+  </p>
+  <br>
+
+  <p class="edu-desc">
+    <strong>Key Responsibilities & Contributions:</strong>
+  </p>
+
+  <ul class="edu-desc" style="padding-left:1.2rem; line-height:1.7;">
+    <li><strong>Order Management, Accuracy & Customer Requests - </strong> Managed daily order tracking using Google Sheets, processing 100+ orders per day across eBay, Amazon, Shopify, and Walmart while maintaining 99% data accuracy. Reviewed buyer cancellation requests and processed order cancellations and refunds promptly in accordance with platform policies.</li>
+    <li><strong>Product & Marketplace Optimization - </strong> Created and optimized product listings and marketplace advertisements, updated pricing strategies, and maintained real-time inventory levels to prevent overselling and minimize stock discrepancies.</li>
+    <li><strong>Fulfillment, Inventory & Issue Resolution - </strong> Monitored shipment tracking, managed backorders, and executed timely reordering to ensure continuous product availability. Resolved order-related issues efficiently, reducing fulfillment delays by 25% and improving overall customer satisfaction.</li>
+    
+      </div><br>
+      
+    <div class="card">
+    <h3>Data Entry Clerk & Office Administrative Assistant</h3>
+
+  <p>
+    <strong>Best Care Security Services (Pvt) Ltd, Sri Lanka</strong><br>
+    <strong>Full-time, On-site | Oct 2019 – Oct 2020</strong>
+  </p>
+  <br>
+
+  <p class="edu-desc">
+    <strong>Key Responsibilities & Contributions:</strong>
+  </p>
+
+  <ul class="edu-desc" style="padding-left:1.2rem; line-height:1.7;">
+    <li><strong>Payroll Management & Compliance - </strong> Managed employee payroll processing, maintained accurate salary records, and ensured timely EPF/ETF submissions with 100% accuracy.</li>
+    <li><strong>Invoicing & Financial Records - </strong> Prepared monthly client invoices, tracked payments, reconciled bank accounts, and maintained accurate financial records.</li>
+    <li>Administrative Support - </strong> Handled typing, filing, photocopying, scanning, faxing, and systematic document organization.</li>
+    <li><strong>Data Entry & Document Management - </strong> Entered, verified, and updated data across internal systems while maintaining data accuracy and confidentiality.</li>
+    <li><strong>Office Coordination - </strong> Managed internal communications, official correspondence, and supported daily office coordination activities.</li>
+    <li><strong>Report Preparation - </strong> Generated monthly, and quarterly operational and financial reports, including Federal Income Tax documentation.</li>
+      </div><br>
+      
+      </section>
 
     <!-- Projects -->
     <section id="projects">
@@ -507,13 +542,48 @@
       </div>
     </section>
 
+  <!-- Certification -->    
+  <section id="certifications">
+  <h2>Certifications</h2>
+
+  <div class="grid">
+
+    <article class="card cert-card">
+      <img src="cert-data-analytics.jpg" alt="Data Analytics Certificate">
+      <h3>Introduction to Data Analysis</h3>
+      <p class="tech">IDM Sri Lanka</p>
+
+      <span class="cert-toggle">View Details</span>
+
+      <p class="cert-details">
+        Covered data cleaning, exploratory data analysis, descriptive statistics,
+        and business reporting using real-world datasets.
+      </p>
+    </article>
+
+    <article class="card cert-card">
+      <img src="cert-ml.jpg" alt="Machine Learning Certificate">
+      <h3>Diploma in Data Science & Machine Learning</h3>
+      <p class="tech">ICBS · SDC Canada</p>
+
+      <span class="cert-toggle">View Details</span>
+
+      <p class="cert-details">
+        Focused on Python, SQL, machine learning fundamentals,
+        data visualization, and a real-world capstone project.
+      </p>
+    </article>
+
+  </div>
+</section>    
+      
     <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
       <div class="card contactcols">
         <div>
-          <p>If you’d like to work together or have any questions, send me a message or email me directly.</p>
-          <p class="muted">Email: <a class="link" href="mailto:lhshalini63@gmail.com">lhshalini63@gmail.com</a></p>
+          <p>If you’d like to work together or have any questions, send me a message or email me directly.</p><br>
+          <p class="muted">Email: <a class="link" href="mailto:lhshalini63@gmail.com">lhshalini63@gmail.com</a></p><br>
           <p class="muted">Location: Colombo, Sri Lanka</p>
         </div>
 
@@ -561,12 +631,32 @@
         <a href="#home" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Home</a>
         <a href="#about" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">About</a>
         <a href="#skills" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Skills</a>
+        <a href="#education" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Education</a>
+        <a href="#experience" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Work</a>
         <a href="#projects" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Projects</a>
+        <a href="#certifications" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Certifications</a>
+        <a href="#contact" style="display:block;padding:0.45rem 0.6rem;color:var(--muted);text-decoration:none">Contact</a>
       `;
       menu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     menu.remove();
   });
+});
+
+      document.querySelectorAll('.cert-card').forEach(card => {
+  card.querySelector('.cert-toggle').addEventListener('click', e => {
+    e.stopPropagation();
+
+    document.querySelectorAll('.cert-card').forEach(c => {
+      if (c !== card) c.classList.remove('active');
+    });
+
+    card.classList.toggle('active');
+  });
+});
+
+document.addEventListener('click', () => {
+  document.querySelectorAll('.cert-card').forEach(c => c.classList.remove('active'));
 });
 
       
@@ -607,6 +697,64 @@ menu.style.position = 'absolute';
       }, { threshold: 0.35 });
       bars.forEach(b => observer.observe(b));
     });
+    
+    // Animated particles background with data science icons
+        function createParticles() {
+            const particlesBg = document.getElementById('particlesBg');
+            
+            // Create floating particles
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particlesBg.appendChild(particle);
+            }
+
+            // Create floating data science icons
+            const icons = [
+    '📊','📈','💡','📉','🔍','🧠','💻','📚','🧮','📐','📏','🔢','🎯','🧩','📋','🔎','⚙️','📡','🗄️','💾','🛢️','🔐','☁️','🖥️','🌐','💼','📁','📝','🔗'];
+            for (let i = 0; i < 20; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                icon.style.left = Math.random() * 100 + '%';
+                icon.style.top = Math.random() * 100 + '%';
+                icon.style.animationDelay = Math.random() * 25 + 's';
+                icon.style.animationDuration = (15 + Math.random() * 15) + 's';
+                particlesBg.appendChild(icon);
+            }
+
+           
+
+            for (let i = 0; i < 12; i++) {
+                const code = document.createElement('div');
+                code.className = 'code-snippet';
+                code.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+                code.style.left = Math.random() * 90 + '%';
+                code.style.top = Math.random() * 100 + 'vh';
+                code.style.animationDelay = Math.random() * 30 + 's';
+                code.style.animationDuration = (20 + Math.random() * 20) + 's';
+                particlesBg.appendChild(code);
+            }
+        }
+
+        createParticles();
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
   </script>
 </body>
 </html>
