@@ -267,6 +267,23 @@ header .container {
   font-weight:600;
   cursor:pointer;
 }
+.cert-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.cert-link {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.cert-link:hover {
+  text-decoration: underline;
+}
 
 
     /* Skills (restored fully, using same card style) */
@@ -558,6 +575,34 @@ header .container {
   <div class="grid">
 
     <article class="card cert-card">
+
+  <!-- 1. Certificate Image -->
+  <img src="images/Introduction to Data Analytics - (IBM)Coursera_page-0001.jpg" alt="IBM Data Analysis Certificate">
+
+  <!-- 2. Certificate Title -->
+  <h3>Introduction to Data Analysis</h3>
+  <p class="tech">IBM · Coursera</p>
+
+  <!-- 3. Actions -->
+  <div class="cert-actions">
+    <a href="images/Introduction to Data Analytics - (IBM)Coursera.pdf"
+       target="_blank"
+       class="cert-link">
+      View Certificate
+    </a>
+
+    <span class="cert-toggle">View Details</span>
+  </div>
+
+  <!-- 4. Hidden Details -->
+  <p class="cert-details">
+    Covered data cleaning, exploratory data analysis, descriptive statistics,
+    and business reporting using real-world datasets.
+  </p>
+
+</article>
+
+    <article class="card cert-card">
       <h3>Introduction to Data Analysis</h3>
       <p class="tech">IBM . Coursera </p>
 
@@ -660,21 +705,24 @@ header .container {
   });
 });
 
-      document.querySelectorAll('.cert-card').forEach(card => {
-  card.querySelector('.cert-toggle').addEventListener('click', e => {
-    e.stopPropagation();
+ document.querySelectorAll('.cert-card').forEach(card => {
+    const toggle = card.querySelector('.cert-toggle');
 
-    document.querySelectorAll('.cert-card').forEach(c => {
-      if (c !== card) c.classList.remove('active');
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+
+      document.querySelectorAll('.cert-card').forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+
+      card.classList.toggle('active');
     });
-
-    card.classList.toggle('active');
   });
-});
 
-document.addEventListener('click', () => {
-  document.querySelectorAll('.cert-card').forEach(c => c.classList.remove('active'));
-});
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.cert-card')
+      .forEach(c => c.classList.remove('active'));
+  });
 
       
       document.querySelector('header').appendChild(menu);
