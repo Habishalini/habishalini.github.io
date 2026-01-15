@@ -103,7 +103,7 @@
 
 header .container {
   max-width: 100%;    /* ignore max-width if you want full width */
-  padding: 1 2rem;    /* horizontal spacing if needed */
+  padding: 0 2rem;    /* horizontal spacing if needed */
   margin: 0;
 }
     .navwrap{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.6rem 0; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-bottom:1px solid rgba(255,255,255,0.02);}
@@ -362,7 +362,7 @@ header .container {
 
       <aside class="card profile fadein">
         <div class="avatar">
-          <img src="images/Habi.jpeg" alt="Your photo">
+          <img src="images/Habi.jpeg" alt="profile photo">
         </div>
       </aside>
     </section>
@@ -490,17 +490,19 @@ header .container {
     <p class="edu-desc">Focused on core computing topics including Programming, Networking, Databases, Software Development Lifecycles, System Analysis & Design, Web & UX Design, Data Structures & Algorithms, and Discrete Mathematics.</p>
   </div>
 
+      <br>
+      <br>
+            
     <!-- Work Experience -->
     <section id="experience">
       <h2>Work Experience</h2>
      <div class="card">
-    <h3>E-Commerce Specialis</h3>
+    <h3>E-Commerce Specialist</h3>
 
   <p>
-    <strong>Webdelico LLC, Delaware USA</strong><br>
-    <strong>Full-time, Remote | Oct 2020 – Nov 2023</strong><br>
-    <strong>Part-time, Remote | Nov 2023 – Present</strong>
-  </p>
+    <strong>Webdelico LLC, Delaware USA  &nbsp;&nbsp;&nbsp;(Remote)</strong><br>
+    Full-time | Oct 2020 – Nov 2023&nbsp;&nbsp;<strong>·</strong>&nbsp;&nbsp;Part-time | Nov 2023 – Present<br>
+   </p>
   <br>
 
   <p class="edu-desc">
@@ -518,8 +520,8 @@ header .container {
     <h3>Data Entry Clerk & Office Administrative Assistant</h3>
 
   <p>
-    <strong>Best Care Security Services (Pvt) Ltd, Sri Lanka</strong><br>
-    <strong>Full-time, On-site | Oct 2019 – Oct 2020</strong>
+    <strong>Best Care Security Services (Pvt) Ltd, Sri Lanka  &nbsp;&nbsp;&nbsp;(On-site)</strong><br>
+    Full-time | Oct 2019 – Oct 2020
   </p>
   <br>
 
@@ -530,7 +532,7 @@ header .container {
   <ul class="edu-desc" style="padding-left:1.2rem; line-height:1.7;">
     <li><strong>Payroll Management & Compliance - </strong> Managed employee payroll processing, maintained accurate salary records, and ensured timely EPF/ETF submissions with 100% accuracy.</li>
     <li><strong>Invoicing & Financial Records - </strong> Prepared monthly client invoices, tracked payments, reconciled bank accounts, and maintained accurate financial records.</li>
-    <li>Administrative Support - </strong> Handled typing, filing, photocopying, scanning, faxing, and systematic document organization.</li>
+    <li><strong>Administrative Support - </strong> Handled typing, filing, photocopying, scanning, faxing, and systematic document organization.</li>
     <li><strong>Data Entry & Document Management - </strong> Entered, verified, and updated data across internal systems while maintaining data accuracy and confidentiality.</li>
     <li><strong>Office Coordination - </strong> Managed internal communications, official correspondence, and supported daily office coordination activities.</li>
     <li><strong>Report Preparation - </strong> Generated monthly, and quarterly operational and financial reports, including Federal Income Tax documentation.</li>
@@ -543,11 +545,11 @@ header .container {
       <h2>Projects</h2>
       <div class="grid">
         <article class="project card">
-          <img loading="lazy" src="https://via.placeholder.com/800x450.png?text=Project+1" alt="Project 1">
-          <h3>Project One</h3>
-          <p class="tech">React · Netlify · Tailwind</p>
-          <p class="muted">Short description of the project. What problem it solves and what you built.</p>
-          <div style="margin-top:0.6rem"><a class="link" href="#">View</a> · <a class="link" href="#">Code</a></div>
+          <img loading="lazy" <img src="images/Project1.png" alt="Customer Churn Prediction">
+          <h3>Customer Churn Prediction</h3>
+          <p class="tech">Python </p>
+          <p class="muted">Machine learning project to predict bank customer churn using Python and multiple models.</p>
+          <div style="margin-top:0.6rem"><a class="link" href="https://github.com/Habishalini/Bank_Customer_Churn_Prediction.git">View Project</a></div>
         </article>
 
         <article class="project card">
@@ -573,8 +575,7 @@ header .container {
   <h2>Certifications</h2>
 
   <div class="grid">
-
-    <article class="card cert-card">
+  <article class="card cert-card">
 
   <!-- 1. Certificate Image -->
   <img src="images/Introduction to Data Analytics - (IBM)Coursera_page-0001.jpg" alt="IBM Data Analysis Certificate">
@@ -662,7 +663,7 @@ header .container {
 
   <footer>
     <div class="container">
-      <div style="margin-bottom:0.6rem">© <span id="year"></span> L Habishalini. All rights reserved.</div>
+      <div style="margin-bottom:0.6rem">© <span id="year"></span> L Habishalini. All Rights Reserved.</div>
     </div>
   </footer>
 
@@ -746,23 +747,6 @@ menu.style.position = 'absolute';
       });
     });
 
-    // Skills progress animation (restores widths from data-width)
-    document.addEventListener("DOMContentLoaded", () => {
-      const bars = document.querySelectorAll(".progress span");
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            const el = entry.target;
-            const w = el.getAttribute('data-width') || el.dataset.width || '0%';
-            // small timeout so transition is visible even if already in view
-            setTimeout(()=> el.style.width = w, 60);
-            observer.unobserve(el);
-          }
-        });
-      }, { threshold: 0.35 });
-      bars.forEach(b => observer.observe(b));
-    });
-    
     // Animated particles background with data science icons
         function createParticles() {
             const particlesBg = document.getElementById('particlesBg');
@@ -796,7 +780,6 @@ menu.style.position = 'absolute';
             for (let i = 0; i < 12; i++) {
                 const code = document.createElement('div');
                 code.className = 'code-snippet';
-                code.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
                 code.style.left = Math.random() * 90 + '%';
                 code.style.top = Math.random() * 100 + 'vh';
                 code.style.animationDelay = Math.random() * 30 + 's';
@@ -807,19 +790,7 @@ menu.style.position = 'absolute';
 
         createParticles();
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        
   </script>
 </body>
 </html>
