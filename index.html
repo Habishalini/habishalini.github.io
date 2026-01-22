@@ -259,20 +259,22 @@ header .container {
   display:block;
 }
 
-.cert-toggle{
-  margin-top:0.6rem;
-  display:inline-block;
-  font-size:0.9rem;
-  color:var(--accent);
-  font-weight:600;
-  cursor:pointer;
+.cert-toggle {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none; /* makes it look clickable */
 }
+
 .cert-actions {
   display: flex;
-  gap: 12px;
-  margin-top: 8px;
+  justify-content: space-between; /* spreads buttons to edges */
   align-items: center;
+  margin-top: 0.6rem;
+  gap: 12px;
 }
+
 
 .cert-link {
   color: var(--accent);
@@ -371,9 +373,10 @@ header .container {
     <section id="about">
       <h2>About Me</h2>
       <div class="card">
-        <p>I am a detail-oriented, data-driven professional with over five years of experience in e-commerce and administrative operations, where I have honed my ability to manage, analyze, and interpret data to improve efficiency, accuracy, and decision-making. Through my work, I have developed a strong foundation in handling large datasets, tracking operational performance, and generating actionable insights that support business growth.
-  </p> <br> <p> My educational journey includes an HND in Software Engineering and a Diploma in Data Science & Machine Learning, and I am currently pursuing a BSc (Hons) in Information Technology (Top-Up) to strengthen my technical and analytical expertise. I am proficient in Python, SQL, Power BI, and data visualization tools, and I actively apply these skills to transform complex data into meaningful insights.
-  </p> <br> <p> I am passionate about leveraging data to solve real-world problems, optimize processes, and deliver measurable impact. I thrive in dynamic, fast-paced environments and am committed to continuous learning, adapting to emerging technologies, and contributing to projects that drive growth and innovation. I am actively seeking opportunities in analytical and data-focused roles where I can combine my technical skills, business acumen, and curiosity to create value and support data-driven decision-making.
+        <p>I am a detail-oriented, data-driven professional with over five years of experience in e-commerce and administrative operations, skilled in managing and analyzing data to improve efficiency, accuracy, and decision-making. Through my work, I have developed a strong foundation in handling large datasets, tracking operational performance, and generating actionable insights that support business growth.
+  </p> <br> <p> My educational journey includes an HND in Software Engineering and a Diploma in Data Science & Machine Learning, and I am Currently Pursuing a BSc (Hons) Top-Up degree in
+Information Technology, to strengthen my technical and analytical expertise. Possess working knowledge of Python, SQL, Power BI, and data visualization concepts.
+  </p> <br> <p> Passionate about turning data into actionable insights and incorporating artificial intelligence techniques to enhance productivity. Actively seeking opportunities to apply and grow my skills in analytical or data-focused roles, driving informed decisions and measurable business impact.
   </p>
       </div>
     </section>
@@ -687,30 +690,10 @@ header .container {
   link.addEventListener('click', () => {
     menu.remove();
   });
-});
-
- document.querySelectorAll('.cert-card').forEach(card => {
-    const toggle = card.querySelector('.cert-toggle');
-
-    toggle.addEventListener('click', e => {
-      e.stopPropagation();
-
-      document.querySelectorAll('.cert-card').forEach(c => {
-        if (c !== card) c.classList.remove('active');
-      });
-
-      card.classList.toggle('active');
-    });
-  });
-
-  document.addEventListener('click', () => {
-    document.querySelectorAll('.cert-card')
-      .forEach(c => c.classList.remove('active'));
-  });
-
-      
+});     
       document.querySelector('header').appendChild(menu);
 menu.style.position = 'absolute';
+      
       // remove when clicked outside
       const closeOnClickOutside = (e) => {
         if(!menu.contains(e.target) && e.target !== hamb) { menu.remove(); document.removeEventListener('click', closeOnClickOutside); }
@@ -730,6 +713,39 @@ menu.style.position = 'absolute';
       });
     });
 
+    // CERTIFICATION TOGGLE – OUTSIDE hamburger
+  document.querySelectorAll('.cert-card').forEach(card => {
+    const toggle = card.querySelector('.cert-toggle');
+
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+
+      document.querySelectorAll('.cert-card').forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+
+      card.classList.toggle('active');
+    });
+  });
+
+  // Close any active card when clicking outside
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.cert-card')
+      .forEach(c => c.classList.remove('active'));
+  });
+
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const href = a.getAttribute('href');
+      if(href && href.length > 1){
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if(target) target.scrollIntoView({behavior:'smooth'});
+      }
+    });
+  });
+    
     // Animated particles background with data science icons
         function createParticles() {
             const particlesBg = document.getElementById('particlesBg');
